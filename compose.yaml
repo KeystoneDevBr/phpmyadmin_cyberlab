@@ -1,0 +1,39 @@
+name: phpmyadmin_cyberlab
+services:
+  mysql_admin:
+    image: fagneftr/phpmyadmin_cyberlab:latest
+    container_name: phpmyadmin
+    ports:
+      - 443:443
+    #environment:
+      #---------------------------------------------------------------#
+      # Allow to connect to any host, 
+      # not only the one defined in PMA_HOST (default is 1)
+      # PMA_ARBITRARY: 0
+      #---------------------------------------------------------------#
+      # Disable SSL to avoid connection 
+      # issues with MySQL/MariaDB (Default is 0)
+      # PMA_SSL: 0
+      #---------------------------------------------------------------#
+      # Disable SSL verification to avoid 
+      # connection issues with MySQL/MariaDB (Default is 0)
+      # PMA_SSL_VERIFY: 1
+      #---------------------------------------------------------------#
+      # Only Set The PMA_HOST variable if you want to connect to a 
+      # single MySQL/MariaDB host
+      # PMA_HOST: "192.168.1.1"
+      # PMA_PORT: 3306
+      
+      # MySQL/MariaDB credentials (Default is root/empty)
+      # do not set these variables if you want to use many different 
+      # users to connect to MySQL/MariaDB
+      #---------------------------------------------------------------#
+      #PMA_USER: "root"
+      #PMA_PASSWORD: """
+    networks:
+      - bridge_network
+networks:
+  bridge_network:
+    driver: bridge
+
+
